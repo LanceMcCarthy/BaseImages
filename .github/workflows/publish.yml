@@ -11,36 +11,6 @@ env:
   REPOSITORY: "lancemccarthy/reporting-aspnet"
 
 jobs:
-  # publish_to_github:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v4
-  #     with:
-  #       fetch-depth: 0
-
-  #   - name: Set up QEMU
-  #     uses: docker/setup-qemu-action@v3
-
-  #   - name: Set up Docker Buildx
-  #     uses: docker/setup-buildx-action@v3
-      
-  #   - name: Login to GitHub Container Registry
-  #     run: docker login ghcr.io -u ${{github.actor}} -p ${{secrets.GITHUB_TOKEN}}
-
-  #   - name: ASP.NET 6.0 - Multi-arch image
-  #     working-directory: 'BuildContexts/aspnet60'
-  #     run: docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{env.REPOSITORY}}:6.0 .
-
-  #   - name: ASP.NET 8.0 - Multi-arch image
-  #     working-directory: 'BuildContexts/aspnet80'
-  #     run: docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{env.REPOSITORY}}:8.0 .
-
-  #   - name: ASP.NET 9.0 - Multi-arch image
-  #     working-directory: 'BuildContexts/aspnet90'
-  #     run: docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{env.REPOSITORY}}:9.0 .
-
-
   publish_images:
     runs-on: ubuntu-latest
     steps:
