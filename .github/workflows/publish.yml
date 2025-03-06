@@ -29,15 +29,15 @@ jobs:
       run: docker login ghcr.io -u ${{github.actor}} -p ${{secrets.GITHUB_TOKEN}}
 
     - name: ASP.NET 6.0 - Multi-arch image
-      working_directory: 'BuildContexts/aspnet60'
+      working-directory: 'BuildContexts/aspnet60'
       run: docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{env.REPOSITORY}}:6.0 .
 
     - name: ASP.NET 8.0 - Multi-arch image
-      working_directory: 'BuildContexts/aspnet80'
+      working-directory: 'BuildContexts/aspnet80'
       run: docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{env.REPOSITORY}}:8.0 .
 
     - name: ASP.NET 9.0 - Multi-arch image
-      working_directory: 'BuildContexts/aspnet90'
+      working-directory: 'BuildContexts/aspnet90'
       run: docker buildx build --push --platform linux/amd64,linux/arm64 --tag ${{env.REPOSITORY}}:9.0 .
 
 
