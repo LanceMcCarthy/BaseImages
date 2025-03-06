@@ -6,7 +6,7 @@ jobs:
   publish_to_docker:
     runs-on: ubuntu-latest
     env:
-      REPOSITORY: "lancemccarthy/reporting/aspnet"
+      REPOSITORY: "lancemccarthy/reporting-aspnet"
     steps:
     - name: Checkout
       uses: actions/checkout@v4
