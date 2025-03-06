@@ -59,7 +59,7 @@ jobs:
           ${{env.REPOSITORY}}:9.0
 
   publish_to_docker:
-    if: ${ succeed() }
+    if: ${{ success() }}
     runs-on: ubuntu-latest
     env:
       REPOSITORY: "lancemccarthy/reporting-aspnet"
