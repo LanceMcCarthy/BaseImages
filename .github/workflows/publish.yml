@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 env:
-  REPOSITORY: "lancemccarthy/reporting-aspnet"
+  REPOSITORY: "lancemccarthy/skia-aspnet"
 
 jobs:
   publish_images:
@@ -46,7 +46,7 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: ASPNET 6.0
+    - name: v6.0
       uses: docker/build-push-action@v5
       with:
         context: 'BuildContexts/aspnet60'
@@ -56,7 +56,17 @@ jobs:
           ${{env.REPOSITORY}}:6.0
           ghcr.io/${{env.REPOSITORY}}:6.0
 
-    - name: ASPNET 8.0
+    - name: v7.0
+      uses: docker/build-push-action@v5
+      with:
+        context: 'BuildContexts/aspnet70'
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: |
+          ${{env.REPOSITORY}}:6.0
+          ghcr.io/${{env.REPOSITORY}}:6.0
+
+    - name: v8.0
       uses: docker/build-push-action@v5
       with:
         context: 'BuildContexts/aspnet80'
@@ -66,7 +76,7 @@ jobs:
           ${{env.REPOSITORY}}:8.0
           ghcr.io/${{env.REPOSITORY}}:8.0
 
-    - name: ASPNET 9.0
+    - name: v9.0
       uses: docker/build-push-action@v5
       with:
         context: 'BuildContexts/aspnet90'
