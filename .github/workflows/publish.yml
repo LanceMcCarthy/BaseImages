@@ -85,3 +85,13 @@ jobs:
         tags: |
           ${{env.REPOSITORY}}:9.0
           ghcr.io/${{env.REPOSITORY}}:9.0
+
+    - name: v10.0
+      uses: docker/build-push-action@v5
+      with:
+        context: 'BuildContexts/aspnet90'
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: |
+          ${{env.REPOSITORY}}:10.0
+          ghcr.io/${{env.REPOSITORY}}:10.0
